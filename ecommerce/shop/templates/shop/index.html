@@ -1,0 +1,180 @@
+{% extends 'shop/basic.html' %}
+
+{% load static %}
+
+
+{% block title %} home {% endblock %}
+
+
+
+
+{% block body %}
+<div class="content">
+  <div class="textBox">
+    <h2>Taste the feeling</h2>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem</p>
+    <a href="#">Learn more</a>
+  </div>
+</div>
+
+ <div class="imgbox">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="{% static 'shop/cocacola1.png' %}"></div>
+      <div class="swiper-slide"><img src="{% static 'shop/cocacola2.png' %}"></div>
+      <div class="swiper-slide"><img src="{% static 'shop/cocacola3.png' %}"></div>
+      <div class="swiper-slide"><img src="{% static 'shop/cocacola4.png' %}"></div>
+      <div class="swiper-slide"><img src="{% static 'shop/cocacola5.png' %}"></div>
+      <div class="swiper-slide"><img src="{% static 'shop/cocacola6.png' %}"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block style %}
+.content {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.content .textBox {
+	position: relative;
+	max-width: 600px;
+	margin-right: 20px;
+} 
+
+.content .textBox h2{
+	color: #fff;
+	font-size: 3em;
+	margin-bottom: 1-0px;
+	line-height: 1.4em;
+	font-weight: 700; 
+}
+
+.content .textBox p {
+	color: #fff;
+}
+
+.content .textBox a
+{
+	display: inline-block;
+	margin-top: 20px;
+	padding: 8px 20px;
+	background: #e51e2a;
+	color: #fff;
+	border-radius: 40px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-decoration: none;
+}
+
+/****** slider ******/
+ .swiper-container {
+      width: 600px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 180px;
+      height: 460px;
+      display: flex;
+      justify-content: center;
+
+    }
+
+    .content .imgbox
+    {
+      width: 500px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .content .imgbox img
+    {
+      max-width: 150px;
+    }
+
+    .swiper-slide img
+    {
+      position: absolute;
+      bottom: 0;
+      max-height: 100%;
+    }
+
+    .swiper-container-3d .swiper-slide-shadow-left,
+    .swiper-container-3d .swiper-slide-shadow-right
+
+    {
+    	background-image: none;
+    }
+
+    @media (max-width: 991px)
+    {
+      header
+      {
+        padding: 40px;
+      }
+
+      section 
+      {
+        padding: 150px 40px;
+      }
+
+      .sci
+      {
+        left: 40px;
+      }
+
+      .content
+      {
+        flex-direction: column;
+      }
+      .content texBox,
+      .content imgbox
+      {
+        width: 100%;
+      }
+      .swiper-slide
+      {
+        height: 300px;
+      }
+      header .navigation
+      {
+        display: none;
+      }
+    }
+
+
+{% endblock %}
+
+{% block js %} 
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> 
+<script type="text/javascript">
+   var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 200,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      loop: true,
+    });
+
+</script>
+{% endblock %}
+
